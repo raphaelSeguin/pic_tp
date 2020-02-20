@@ -3,4 +3,4 @@
   become: yes
   roles:
     - java
-    - install_jenkins
+    - jenkins
