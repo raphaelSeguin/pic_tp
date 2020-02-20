@@ -9,8 +9,10 @@
       state: started
       ports:
         - "80:80"
-      command: '{{ items }}'
-    with_items:
-        - git clone https://github.com/raphaelSeguin/pic_tp_scm
-        - mvn clean install
-        - java -jar ~/.m2/*.jar  
+      command: 
+        - /bin/sh
+        - -c
+        - |
+            git clone https://github.com/raphaelSeguin/pic_tp_scm
+            mvn clean install
+            java -jar ~/.m2/*.jar
