@@ -1,6 +1,6 @@
 --- 
-- hosts: localhost
-  become: yes
+- hosts: prod
+  become_user: vagrant
   tasks:
   - name: Create a container
     docker_container:
@@ -13,6 +13,6 @@
         - /bin/sh
         - -c
         - |
-            git clone https://github.com/raphaelSeguin/pic_tp_scm
-            mvn clean install
-            java -jar ~/.m2/*.jar
+            sudo git clone https://github.com/raphaelSeguin/pic_tp_scm
+            sudo mvn clean install
+            sudo java -jar ~/.m2/*.jar
