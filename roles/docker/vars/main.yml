@@ -1,4 +1,4 @@
 ---
 # vars file for DOCKER_ROLE
 liste: ['docker', 'docker-common', 'docker-engine']
-ma_var: default
+var_port: default
