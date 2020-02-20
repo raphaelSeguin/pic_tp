@@ -15,3 +15,11 @@
 - name: Install DOCKER docker-engine
   shell: 'sudo yum -y install docker-ce docker-ce-cli containerd.io'
   notify: start docker
+
+- name: Specify the port
+  lineinfile:
+    path: /usr/lib/systemd/system/docker.service
+    regexp: '^ExecStart='
+    insertafter: 'fd:// '
+    line: -H tcp://0.0.0.0:'{{ var_port }}'
+
