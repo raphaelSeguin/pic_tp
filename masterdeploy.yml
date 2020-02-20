@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: Change repertory
-    command: 'cd ~/app'
+    command: 'cd app'
   - name: Create a container
     docker_container:
       name: appprod
