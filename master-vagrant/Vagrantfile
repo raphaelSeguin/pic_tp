@@ -96,5 +96,6 @@ YhjAAQKBgQCpzghSGzBJyWzi1l0Ip20z7g9Fy9Z8KQGPw4kDKv3UIKVknmyjhABx
 t56/BH0q6jrceTsgtyLYG1VoR/63PPSuyF2Pgoi6wZPEZO1kLNlko6hzxSfGztah
 FgdDL1wn8NhTExNwGauLjb7cV4jDw8J5FGNP7qn8JSL7wOH2LTZ4hA==
 -----END RSA PRIVATE KEY-----' > /home/vagrant/.ssh/id_rsa
+	echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRNBjW2KRIP3vowhFN1ZIHXmtf0vlAKFnQ5WTsAf0TYE9Bl9GTxq/V4+ePdeg7yKOMsoX+zG43/NANGmxk6r0z5WL4f07UURZ2hLs+MqRB+v6eaMVdzKy/YZ7B8+TKfVUwzErJ405wLsU0tZEW2AdUFad1lZ4t+WNuk15zkbeCk7+xWdWTfGRn6nOSlgpcrT8aWuuR4xuRMFc6E1ak3yPaKZe+bCQwtENvf0VOsMwOTnD/ughUF5+zUBJdEmQBITJ3GEdGeamDM26DlUyM/vJaNTyu4ygfP/b968w2f5PfKPAGgDRu8W6QLdu3WkZ4m/zPiDHa9gEINTZNO+hIQxUf vagrant@localhost.localdomain' >> /home/vagrant/.ssh/authorized_keys
   SHELL
 end
