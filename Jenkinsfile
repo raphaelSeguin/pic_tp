@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 git 'http://192.168.1.60:8000/tp/gitlab_scm'
-                sh 'pwd'
+                sh 'mvn clean test'
             }
         }
         /*stage('use ansible'){
