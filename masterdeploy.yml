@@ -1,0 +1,15 @@
+--- 
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Create a container
+    docker_container:
+      name: appprod
+      image: raphaelseguin/maven-git:latest
+      state: started
+      ports:
+        - "80:80"
+      command: {{ items }}
+      with_items:
+        - mvn clean install
+        - java -jar ~/.m2/*.jar  
