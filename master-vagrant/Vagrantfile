@@ -1,0 +1,100 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "centos/7"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.100.2"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  config.vm.synced_folder "./data", "/vagrant_data", create: true
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  # Customize the amount of memory on the VM:
+      vb.memory = "2048"
+	  vb.cpus = "2"
+  end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision "shell", inline: <<-SHELL
+    yum -y update 
+	yum -y install epel-release 
+	yum -y install python-pip 
+	pip install ansible
+	echo '-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA0TQY1tikSD976MIRTdWSB15rX9L5QChZ0OVk7AH9E2BPQZfR
+k8av1ePnj3XoO8ijjLKF/sxuN/zQDRpsZOq9M+Vi+H9O1FEWdoS7PjKkQfr+nmjF
+Xcysv2GewfPkyn1VMMxKyeNOcC7FNLWRFtgHVBWndZWeLfljbpNec5G3gpO/sVnV
+k3xkZ+pzkpYKXK0/GlrrkeMbkTBXOhNWpN8j2imXvmwkMLRDb39FTrDMDk5w/7oI
+VBefs1ASXRJkASEydxhHRnmpgzNug5VMjP7yWjU8ruMoHz/2/evMNn+T3yjwBoA0
+bvFukC3bt1pGeJv8z4gx2vYBCDU2TTvoSEMVHwIDAQABAoIBAQCMaAu3vmTb/Iec
+GwvkEk/U1ED6ai1RKwPE2QDYCSmiZIQtAMjvBm2i/ze9qCO6ZBmoZ3TZIrliqDG2
+aaKQRJ/BgdXf9AmjI90QpFrLDtABXIShKq40GxdhxxH3GErYwC959dLIFt/hGPLQ
+Qn/jNhANFg9zMnycXIGoiA3fQNBKOMmTiCKcyFSfINYexArdF/PGN+HoLS/MUrfI
+d4WmTDTjS4aGv76dGA2Vhirv+eMOr+iJR/931FF7URUAdkPLb7YSLTdTUY2NumIo
+XnRlWoUlj3+8QcZmqnCLJ6F0m5U4HMQQeJYM96v0PdgguTEKsMQOy0oIwXLYifNE
+coQlPADpAoGBAPzwSBUux/6x4IZjlPawPokDVRksY/JciMlVYQGi+I2z7cNFsfci
+VC7sByiFwmsp68vi1SPjIx2IbVy+6euXficEWx+wwD6kPchsgBBp1R8U1J7TDe/Q
+jc3FiN0SSRrFKdwsLUjxcmQusXYn+K3+2uT67dvfN71/H9qCzKjoUBWDAoGBANO8
+Tebw2Un7LIIrqBsrTTAaV5ynGGN8YRVE8uCEkfLWoP9EAy6a8iaU8VmBftczfMa2
+KkIwCckBw0jV8tp+7hBPBlEnuswutrLTfWNdy9UfELiz51EcQmItw34zIq3/OsMn
+pBozHD5ibhI2RctGUpTMPjuVNOATIhUjMAIMlgs1AoGAPkDdXOlQq+0Xt7vWtAiY
+u5woW7PDPalsuTDcWUzFJAs+36rNrGe0lH/fGyggu8Nrl5jSoKyMvf4P/J24cRWu
+JOg7jUcxabl+w0+BDYkevTGhSx3i9j08SYLutoqDl6UjMl9lHejfIK0lXFFmMVzi
+fy0LUexUib06F8vNl1zmKQUCgYAnsyboJkCXnoC553WdooDWhBnpRWtNPAT39/WS
+I0k6PwPw2M+/7U157nNSVPVzZDQBDibeQiOTjMEQ5wyh6yq35BlLHifoINogrYbV
+GsEdNLXt681zZ9kKj4oYH35hIXnjHYunXe3txIbe404yzvys6Z7BjThcyzmYvQBD
+YhjAAQKBgQCpzghSGzBJyWzi1l0Ip20z7g9Fy9Z8KQGPw4kDKv3UIKVknmyjhABx
+t56/BH0q6jrceTsgtyLYG1VoR/63PPSuyF2Pgoi6wZPEZO1kLNlko6hzxSfGztah
+FgdDL1wn8NhTExNwGauLjb7cV4jDw8J5FGNP7qn8JSL7wOH2LTZ4hA==
+-----END RSA PRIVATE KEY-----' > /home/vagrant/.ssh/id_rsa
+  SHELL
+end
