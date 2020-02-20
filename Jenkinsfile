@@ -11,6 +11,11 @@ pipeline {
                 git branch: 'develop', url: 'http://192.168.1.60:8000/tp/gitlab_scm'
                 sh 'mvn clean test'
             }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
         }
         /*stage('use ansible'){
             steps {
