@@ -73,6 +73,6 @@ Vagrant.configure("2") do |config|
 	echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRNBjW2KRIP3vowhFN1ZIHXmtf0vlAKFnQ5WTsAf0TYE9Bl9GTxq/V4+ePdeg7yKOMsoX+zG43/NANGmxk6r0z5WL4f07UURZ2hLs+MqRB+v6eaMVdzKy/YZ7B8+TKfVUwzErJ405wLsU0tZEW2AdUFad1lZ4t+WNuk15zkbeCk7+xWdWTfGRn6nOSlgpcrT8aWuuR4xuRMFc6E1ak3yPaKZe+bCQwtENvf0VOsMwOTnD/ughUF5+zUBJdEmQBITJ3GEdGeamDM26DlUyM/vJaNTyu4ygfP/b968w2f5PfKPAGgDRu8W6QLdu3WkZ4m/zPiDHa9gEINTZNO+hIQxUf vagrant@localhost.localdomain' >> /home/vagrant/.ssh/authorized_keys
 	git clone https://github.com/raphaelSeguin/pic_tp
 	cd pic_tp
-	sudo ansible-playbook prod-playbook.yml -e ma_var=5002
+	sudo ansible-playbook prod-playbook.yml -e var_port=5002
   SHELL
 end
