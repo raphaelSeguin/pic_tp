@@ -4,9 +4,7 @@ pipeline {
     }
     stages {
         stage('use ansible'){
-            steps {
-                sh 'ansible-playbook masterdeploy.yml'
-            }
+            ansiblePlaybook(credentialsId: 'slave', playbook: 'masterdeploy.yml')
         }
     }
 }
