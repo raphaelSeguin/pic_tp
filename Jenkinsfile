@@ -8,7 +8,7 @@ pipeline {
                 label 'dockertest'
             }
             steps {
-                git 'http://192.168.1.60:8000/tp/gitlab_scm'
+                git branch: 'develop', url: 'http://192.168.1.60:8000/tp/gitlab_scm'
                 sh 'mvn clean test'
             }
         }
