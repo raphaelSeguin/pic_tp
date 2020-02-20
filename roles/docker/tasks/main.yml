@@ -21,5 +21,4 @@
     path: /usr/lib/systemd/system/docker.service
     regexp: '^ExecStart='
     insertafter: 'fd:// '
-    line: ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:'{{ var_port }}' --containerd=/run/containerd/containerd.sock
-
+    line: 'ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:{{ var_port }} --containerd=/run/containerd/containerd.sock'
