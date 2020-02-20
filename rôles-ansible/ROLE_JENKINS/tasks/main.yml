@@ -1,0 +1,41 @@
+---
+# tasks file for install_jenkins
+- name: Create directory for jenkins if not exist
+  file:
+   path: /usr/lib/jenkins
+   state: directory
+
+- name: curl de Jenkins
+  get_url:
+   url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+   dest: /usr/lib/jenkins
+
+- name: create file service jenkins
+  file:
+   path: /etc/systemd/system/jenkins.service
+   state: touch
+
+- name: Config du fichier jenkins.service
+  lineinfile:
+   path: /etc/systemd/system/jenkins.service
+   line: "{{ item }}"
+  with_items:
+   - "[Unit]"
+   - "Description=Jenkins Daemon"
+   - "After=network.target"
+   - "[Service]"
+   - "Type=simple"
+   - 'Environment="JENKINS_HOME=/data/jenkins"'
+   - "ExecStart=/usr/bin/java -jar /usr/lib/jenkins/jenkins.war"
+   - "[Install]"
+   - "WantedBy=multi-user.target"
+
+- name: Gestion du service
+  systemd:
+   daemon_reload: yes
+
+- name: Gestion du service2
+  service:
+   name: jenkins
+   state: restarted
+   enabled: yes

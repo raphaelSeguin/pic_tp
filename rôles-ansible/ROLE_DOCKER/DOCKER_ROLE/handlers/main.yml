@@ -1,0 +1,8 @@
+---
+# handlers file for DOCKER_ROLE
+- name:
+  systemd:
+    state: started
+    daemon-reload: yes
+    name: docker 
+  listen: start docker 

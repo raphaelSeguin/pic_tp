@@ -1,0 +1,25 @@
+---
+# tasks file for maven
+- name: curl de Maven
+  get_url:
+   url: https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+   dest: /root/Téléchargements
+
+- name: Tar de Maven
+  shell: tar -xzf /root/Téléchargements/apache-maven-3.6.3-bin.tar.gz -C /opt/
+
+- name: create file mvn.sh
+  file:
+   path: /etc/profile.d/mvn.sh
+   state: touch
+
+- name: Config de Maven dans le mvn.sh
+  lineinfile:
+   path: /etc/profile.d/mvn.sh
+   line: "{{ item }}"
+  with_items:
+   - "export MAVEN_HOME=/opt/apache-maven-3.6.3"
+   - "export PATH=$PATH:$MAVEN_HOME/bin"
+
+- name: Faire relire le mvn.sh par le bas
+  shell: . /etc/profile.d/mvn.sh

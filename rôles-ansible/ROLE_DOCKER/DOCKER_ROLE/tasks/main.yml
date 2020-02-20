@@ -1,0 +1,17 @@
+---
+#tasks file for DOCKER_ROLE
+- name: Ensure old versions of Docker are not installed.
+  package:
+    name: '{{ item }}'
+    state: absent
+  with_items: '{{ liste }}'
+
+- name: Install yum-utils
+  shell: 'sudo yum -y install yum-utils device-mapper-persistent-data lvm2'
+
+- name: set up stable repository
+  shell: sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: Install DOCKER docker-engine
+  shell: 'sudo yum -y install docker-ce docker-ce-cli containerd.io'
+  notify: start docker

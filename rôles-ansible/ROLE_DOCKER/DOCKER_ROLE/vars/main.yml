@@ -1,0 +1,3 @@
+---
+# vars file for DOCKER_ROLE
+liste: ['docker', 'docker-common', 'docker-engine']
