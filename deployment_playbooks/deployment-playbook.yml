@@ -23,7 +23,6 @@
       block: |
         FROM raphaelseguin/maven-git:latest
         COPY ./devops-1.0.war .
-        EXPOSE 8080
   - name: install python docker lib
     pip:
       name: docker
@@ -35,7 +34,7 @@
       name: raphaelseguin/devopsapp
       source: build
       pull: yes   
-      tag: v5 
+      tag: v6 
 
 #  - name: Log into DockerHub
 #    docker_login:
@@ -54,7 +53,7 @@
       cmd: sudo docker login --username=raphaelseguin --password=dockerraph2020
   - name: Shell
     shell:
-      cmd: sudo docker push raphaelseguin/devopsapp:v5
+      cmd: sudo docker push raphaelseguin/devopsapp:v6
 
 - hosts: prod
   become: yes
@@ -66,12 +65,12 @@
       state: latest
   - name: pull container
     docker_image:
-      name: raphaelseguin/devopsapp:v5
+      name: raphaelseguin/devopsapp:v6
       source: pull    
   - name: run container
     docker_container:
       name: App
-      image: raphaelseguin/devopsapp:v5
+      image: raphaelseguin/devopsapp:v6
       state: started
       restart: yes
       ports: '80:8080'
