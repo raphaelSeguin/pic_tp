@@ -73,5 +73,7 @@
   - name: run container
     docker_container:
       name: raphaelseguin/devopsapp:v1
+      image: raphaelseguin/devopsapp:v1
+      state: started
       ports: 
       - "80:80"
