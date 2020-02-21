@@ -21,7 +21,7 @@
     blockinfile:
       path: ./prod_image/Dockerfile
       block: |
-        FROM raphaelseguin/maven-git:latest
+        FROM openjdk
         COPY ./devops-1.0.war .
         CMD ["java","-jar","devops-1.0.war"]
   - name: install python docker lib
@@ -35,7 +35,7 @@
       name: raphaelseguin/devopsapp
       source: build
       pull: yes   
-      tag: v7 
+      tag: v8 
 
 #  - name: Log into DockerHub
 #    docker_login:
@@ -54,7 +54,7 @@
       cmd: sudo docker login --username=raphaelseguin --password=dockerraph2020
   - name: Shell
     shell:
-      cmd: sudo docker push raphaelseguin/devopsapp:v7
+      cmd: sudo docker push raphaelseguin/devopsapp:v8
 
 - hosts: prod
   become: yes
@@ -66,12 +66,12 @@
       state: latest
   - name: pull container
     docker_image:
-      name: raphaelseguin/devopsapp:v7
+      name: raphaelseguin/devopsapp:v8
       source: pull    
   - name: run container
     docker_container:
       name: App
-      image: raphaelseguin/devopsapp:v7
+      image: raphaelseguin/devopsapp:v8
       state: started
       restart: yes
       ports: '80:8080'
