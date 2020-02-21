@@ -62,6 +62,10 @@
   become: yes
   remote_user: vagrant
   tasks:
+  - name: install python docker lib
+    pip:
+      name: docker
+      state: latest
   - name: pull container
     docker_image:
       name: raphaelseguin/devopsapp:v1
