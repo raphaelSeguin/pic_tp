@@ -73,6 +73,7 @@
       name: App
       image: raphaelseguin/devopsapp:v4
       state: started
+      restart: yes
       ports: 
       - "80:8080"
       command: /usr/bin/java -jar /devops-1.0.war
