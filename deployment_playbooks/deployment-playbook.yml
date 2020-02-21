@@ -39,18 +39,24 @@
       pull: yes   
       tag: v1 
 
-  - name: Log into DockerHub
-    docker_login:
-      username: raphaelseguin
-      password: dockerraph2020
+#  - name: Log into DockerHub
+#    docker_login:
+#      username: raphaelseguin
+#      password: dockerraph2020
 
-  - name: push to docker hub
-    docker_image:
-      name: raphaelseguin/devopsapp
-      repository: raphaelseguin/devopsapp
-      tag: v1
-      push: yes
-      source: local
+#  - name: push to docker hub
+#    docker_image:
+#      name: raphaelseguin/devopsapp
+#      repository: raphaelseguin/devopsapp
+#      tag: v1
+#      push: yes
+#      source: local
+  - name: Login docker shell
+    shell:
+      cmd: echo dockerraph2020 | sudo docker login --username=raphaelseguin --email=raphaelseguin@gmail.com
+  - name: Shell
+    shell:
+      cmd: sudo docker push raphaelseguin/devopsapp:v1
 
 - hosts: prod
   become: yes
