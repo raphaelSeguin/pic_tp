@@ -1,0 +1,10 @@
+---
+- hosts: slave
+  become: true
+  remote_user: vagrant
+  tasks:
+  - name: fais un répertoire avec un Dockerfile d'apres un template
+
+  - name: build docker image
+
+  - name: push on docker hub

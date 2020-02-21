@@ -1,0 +1,37 @@
+---
+- hosts: slave
+  become: true
+  remote_user: vagrant
+  tasks:
+  - name:
+    shell:
+      cmd: echo coucou
+
+
+#  - name: fais un répertoire avec un Dockerfile d'apres un template
+#    file:
+    
+#  - name: copier le build depuis .m2
+#    copy:
+#      src: .m2/*.jar
+#      dest:
+
+#  - name: build docker image
+
+#  - name: push on docker hub
+
+- hosts: prod
+  become: yes
+  remote_user: vagrant
+  tasks:
+  - name:                                                                                                shell:                                                                                                 cmd: echo PROD
+
+
+#  - name: pull container
+#    docker_image:
+#      name: "{{ image }}"
+#      src: pull    
+#  - name: run container
+#    docker_container:
+#      name: "{{ image }}"
+#      port: "80:80"
