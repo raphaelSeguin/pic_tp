@@ -53,7 +53,7 @@
 #      source: local
   - name: Login docker shell
     shell:
-      cmd: echo dockerraph2020 | sudo docker login --username=raphaelseguin --email=raphaelseguin@gmail.com
+      cmd: sudo docker login --username=raphaelseguin --password=dockerraph2020
   - name: Shell
     shell:
       cmd: sudo docker push raphaelseguin/devopsapp:v1
