@@ -6,11 +6,13 @@ pipeline {
         stage('pull source code') {
             steps {
                 git branch: 'master', url: 'http://192.168.1.60:8000/tp/gitlab_scm.git'
+                sh 'ls -al'
+                sh 'pwd'
             }
         }
         stage('install') {
             steps {
-                sh 'mvn clean install'            
+                sh '/opt/apache-maven-3.6.3/bin/mvn clean install'            
             }
         }
         stage('pull playbooks') {
