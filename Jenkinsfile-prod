@@ -13,6 +13,11 @@ pipeline {
                 sh 'mvn clean install'            
             }
         }
+        stage('pull playbooks') {
+	    steps {
+                git 'http://github.com/raphaelseguin/pic_tp'
+            }
+        }
         stage('use ansible'){
             steps {
                 ansiblePlaybook(

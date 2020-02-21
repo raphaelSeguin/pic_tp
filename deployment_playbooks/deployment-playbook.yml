@@ -3,10 +3,30 @@
   become: true
   remote_user: vagrant
   tasks:
-  - name: coucou slave
-    shell:
-      cmd: echo coucou
+  - name: cree repertoire
+    file:
+      path: ./prod_image
+      state: directory
+      mode: '0755'
+  - name: cree fichier Dockerfile
+    file:
+      path: ./prod_image/Dockerfile
+      state: touch
+      mode: '0644'
+  #- name: copier le .jar depuis .m2
+    
 
+
+
+
+
+  - name: ecrit dand Dockerfile
+    blockinfile:
+      path: ./prod_image/Dockerfile
+      block: |
+        FROM raphaelseguin/maven-git:latest
+        COPY ./m2/*.jar
+     
 
 #  - name: fais un répertoire avec un Dockerfile d'apres un template
 #    file:
@@ -24,9 +44,6 @@
   become: yes
   remote_user: vagrant
   tasks:
-  - name: coucou prod
-    shell:  
-      cmd: echo PROD
 
 
 #  - name: pull container
