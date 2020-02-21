@@ -17,7 +17,7 @@
     blockinfile:
       path: ./prod_image/Dockerfile
       block: |
-        COPY /home/vagrant/.m2/repository/com/gtm/devops/1.0/devops-1.0.war
+        COPY /home/vagrant/.m2/repository/com/gtm/devops/1.0/devops-1.0.war .
         EXPOSE 80
         ENTRYPOINT ['java']
         CMD ['-jar','devops-1.0.war']
