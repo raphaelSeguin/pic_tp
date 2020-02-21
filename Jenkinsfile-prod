@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('pull source code') {
             steps {
-                git branch: 'master', url: 'http://192.168.1.60:8000/tp/gitlab_scm.git'
+                git branch: 'master', url: 'http://192.168.1.60:8000/tp/gitlab_scm'
             }
         }
         stage('install') {
