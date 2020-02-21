@@ -31,7 +31,7 @@
         path: ./prod_image
       name: devopsapp
       source: build
-      build.pull: yes   
+      pull: yes   
  
   - name: push to docker hub
     docker_image:
