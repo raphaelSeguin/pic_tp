@@ -64,8 +64,8 @@
   tasks:
   - name: pull container
     docker_image:
-      name: raphaelseguin/devopsapp
-      src: pull    
+      name: raphaelseguin/devopsapp:v1
+      source: pull    
   - name: run container
     docker_container:
       name: raphaelseguin/devopsapp:v1
