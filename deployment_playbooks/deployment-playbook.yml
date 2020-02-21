@@ -24,8 +24,7 @@
         FROM raphaelseguin/maven-git:latest
         COPY ./devops-1.0.war .
         EXPOSE 80
-        ENTRYPOINT ['java']
-        CMD ['-jar','devops-1.0.war']
+        CMD ['java', '-jar','devops-1.0.war']
   - name: install python docker lib
     pip:
       name: docker
@@ -37,7 +36,7 @@
       name: raphaelseguin/devopsapp
       source: build
       pull: yes   
-      tag: v1 
+      tag: v2 
 
 #  - name: Log into DockerHub
 #    docker_login:
@@ -56,7 +55,7 @@
       cmd: sudo docker login --username=raphaelseguin --password=dockerraph2020
   - name: Shell
     shell:
-      cmd: sudo docker push raphaelseguin/devopsapp:v1
+      cmd: sudo docker push raphaelseguin/devopsapp:v2
 
 - hosts: prod
   become: yes
@@ -68,12 +67,12 @@
       state: latest
   - name: pull container
     docker_image:
-      name: raphaelseguin/devopsapp:v1
+      name: raphaelseguin/devopsapp:v2
       source: pull    
   - name: run container
     docker_container:
-      name: raphaelseguin/devopsapp:v1
-      image: raphaelseguin/devopsapp:v1
+      name: App
+      image: raphaelseguin/devopsapp:v2
       state: started
       ports: 
       - "80:80"
