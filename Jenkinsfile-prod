@@ -8,7 +8,8 @@ pipeline {
                 ansiblePlaybook(
                     credentialsId: 'slave',
                     inventory: 'deployment_playbooks/inventory',
-                    playbook:  'deployment_playbooks/deployment-playbook.yml'
+                    playbook:  'deployment_playbooks/deployment-playbook.yml',
+                    disableHostKeyChecking: true
                 )
             }
         }
