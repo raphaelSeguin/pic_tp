@@ -73,4 +73,5 @@
   - name: run container
     docker_container:
       name: raphaelseguin/devopsapp:v1
-      port: "80:80"
+      ports: 
+      - "80:80"
