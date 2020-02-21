@@ -21,6 +21,13 @@
         EXPOSE 80
         ENTRYPOINT ['java']
         CMD ['-jar','devops-1.0.war']
+
+  - name: install python docker lib
+    pip:
+      name: docker
+      state: latest
+
+
   - name: build image docker
     docker_image:
       build: 
@@ -38,7 +45,7 @@
 
 #  - name: pull container
 #    docker_image:
-#      name: "{{ image }}"
+#      name: raphaelseguin/devopsapp
 #      src: pull    
 #  - name: run container
 #    docker_container:
