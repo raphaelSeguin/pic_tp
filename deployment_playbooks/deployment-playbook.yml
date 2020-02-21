@@ -41,7 +41,8 @@
   - name: push to docker hub
     docker_image:
       name: raphaelseguin/devopsapp
-      repository: raphaelseguin/devopsapp:1.0
+      repository: raphaelseguin/devopsapp
+      tag: 1.0
       push: yes
       source: local
 
