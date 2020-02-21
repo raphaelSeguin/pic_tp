@@ -17,6 +17,7 @@
     blockinfile:
       path: ./prod_image/Dockerfile
       block: |
+        FROM raphaelseguin/maven-git:latest
         COPY /home/vagrant/.m2/repository/com/gtm/devops/1.0/devops-1.0.war .
         EXPOSE 80
         ENTRYPOINT ['java']
