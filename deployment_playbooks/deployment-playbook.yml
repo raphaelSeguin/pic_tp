@@ -62,13 +62,11 @@
   become: yes
   remote_user: vagrant
   tasks:
-
-
-#  - name: pull container
-#    docker_image:
-#      name: raphaelseguin/devopsapp
-#      src: pull    
-#  - name: run container
-#    docker_container:
-#      name: "{{ image }}"
-#      port: "80:80"
+  - name: pull container
+    docker_image:
+      name: raphaelseguin/devopsapp
+      src: pull    
+  - name: run container
+    docker_container:
+      name: raphaelseguin/devopsapp:v1
+      port: "80:80"
