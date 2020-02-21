@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        label 'SLAVE'
+    }
+    stages {
+        stage('use ansible'){
+            steps {
+                ansiblePlaybook(credentialsId: 'slave', playbook: 'deployment_playbooks/deployment-playbook.yml')
+            }
+        }
+    }
+}
