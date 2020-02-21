@@ -37,7 +37,7 @@
       name: raphaelseguin/devopsapp
       source: build
       pull: yes   
-      tag: '1.0' 
+      tag: v1 
 
   - name: Log into DockerHub
     docker_login:
@@ -48,7 +48,7 @@
     docker_image:
       name: raphaelseguin/devopsapp
       repository: raphaelseguin/devopsapp
-      tag: '1.0'
+      tag: v1
       push: yes
       source: local
 
