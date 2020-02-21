@@ -2,5 +2,5 @@
 # tasks file for java
 - name: install java 8
   yum:
-    name: java-1.8.0-openjdk
+    name: java-1.8.0-openjdk-devel
     state: present
