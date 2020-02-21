@@ -12,7 +12,7 @@ pipeline {
         }
         stage('install') {
             steps {
-                sh 'mvn clean install'            
+                sh '/opt/apache-maven-3.6.3/bin/mvn clean install'            
             }
         }
         stage('use ansible'){
