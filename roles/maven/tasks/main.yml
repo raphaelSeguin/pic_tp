@@ -3,10 +3,10 @@
 - name: curl de Maven
   get_url:
    url: https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-   dest: /root/Téléchargements
+   dest: .
 
 - name: Tar de Maven
-  shell: tar -xzf /root/Téléchargements/apache-maven-3.6.3-bin.tar.gz -C /opt/
+  shell: tar -xzf ./apache-maven-3.6.3-bin.tar.gz -C /opt/
 
 - name: create file mvn.sh
   file:
