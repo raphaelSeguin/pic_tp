@@ -5,7 +5,11 @@ pipeline {
     stages {
         stage('use ansible'){
             steps {
-                ansiblePlaybook(credentialsId: 'slave', playbook: 'deployment_playbooks/deployment-playbook.yml')
+                ansiblePlaybook(
+                    credentialsId: 'slave',
+                    inventory: 'deployment_playbooks/inventory',
+                    playbook:  'deployment_playbooks/deployment-playbook.yml'
+                )
             }
         }
     }

@@ -3,7 +3,7 @@
   become: true
   remote_user: vagrant
   tasks:
-  - name:
+  - name: coucou slave
     shell:
       cmd: echo coucou
 
@@ -24,7 +24,9 @@
   become: yes
   remote_user: vagrant
   tasks:
-  - name:                                                                                                shell:                                                                                                 cmd: echo PROD
+  - name: coucou prod
+    shell:  
+      cmd: echo PROD
 
 
 #  - name: pull container
