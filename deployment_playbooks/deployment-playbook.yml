@@ -34,10 +34,10 @@
     docker_image:
       build: 
         path: ./prod_image
-      name: raphaelseguin/devopsapp:1.0
+      name: raphaelseguin/devopsapp
       source: build
       pull: yes   
- 
+      tag: '1.0' 
   - name: push to docker hub
     docker_image:
       name: raphaelseguin/devopsapp
