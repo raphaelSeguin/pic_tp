@@ -13,32 +13,21 @@
       path: ./prod_image/Dockerfile
       state: touch
       mode: '0644'
-  #- name: copier le .jar depuis .m2
-    
-
-
-
-
-
-  - name: ecrit dand Dockerfile
     blockinfile:
       path: ./prod_image/Dockerfile
       block: |
-        FROM raphaelseguin/maven-git:latest
-        COPY ./m2/*.jar
-     
-
-#  - name: fais un répertoire avec un Dockerfile d'apres un template
-#    file:
-    
-#  - name: copier le build depuis .m2
-#    copy:
-#      src: .m2/*.jar
-#      dest:
-
-#  - name: build docker image
-
-#  - name: push on docker hub
+        COPY /home/vagrant/.m2/repository/com/gtm/devops/1.0/devops-1.0.war
+        EXPOSE 80
+        ENTRYPOINT ['java']
+        CMD ['-jar','devops-1.0.war']
+  - name: build image docker
+    docker_image:
+      build: 
+        path: ./prod_image
+      name: raphaelseguin/devopsapp
+      tag: 1.0
+      push: yes
+      source: build
 
 - hosts: prod
   become: yes
