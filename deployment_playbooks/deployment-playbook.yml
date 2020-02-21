@@ -40,7 +40,7 @@
  
   - name: push to docker hub
     docker_image:
-      name: devopsapp
+      name: raphaelseguin/devopsapp
       repository: raphaelseguin/devopsapp
       push: yes
       source: local
