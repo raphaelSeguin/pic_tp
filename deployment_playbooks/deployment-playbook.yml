@@ -26,7 +26,7 @@
       build: 
         path: ./prod_image
       name: raphaelseguin/devopsapp
-      tag: 1.0
+      tag: '1.0'
       push: yes
       source: build
 
