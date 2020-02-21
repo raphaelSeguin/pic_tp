@@ -1,21 +1,16 @@
-# PROJET platerforme d'intégration continue
+# PROJET Platerforme d'Intégration Continue
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Projet CD du 20/02 au 21/02 2020. 
+Projet PIC du 20/02 au 21/02 2020. 
 1. déployer une plateforme d'intégration continue (PIC) intégrant des outils de CI/CD.
 2. développer une chaîne complète de déploiement continue permettant de faire des mise en production (MEP) automatiquement, avec possibilité de rollback.
-
-
-## Pour commencer
-
-Entrez ici les instructions pour bien débuter avec votre projet...
 
 ### Pré-requis
 
 Vous devez absolument avoir Vagrant d'installé sur votre machine.
 Si vous devez installer Vagrant [Cliquez ici](https://www.vagrantup.com/downloads.html)
-Choisissez la bonne version à installer selon votre OS
+Choisissez la bonne version à installer selon votre OS.
 
 ### Installation
 
@@ -24,18 +19,25 @@ Il vous faudra d'abord récupérer les 4 dossiers suivants :
 - slave-vagrant
 - test-vagrant
 - prod-vagrant
+- local-gitlab
 
 Chacun de ces dossiers contient un Vagrantfile.
 Sur le terminal windows, placez vous au niveau du dossier master-vagrant et lancez la commande :
 vagrant up
 
-Répétez l'opération dans chacun des dossiers -vagrant 
+Répétez l'opération dans chacun des dossiers <machine>-vagrant 
 
 A la fin, vous devriez avoir 4 machines virtuelles qui tournent avec tout ce qu'il faut pour chaque machine.
 
 ## Démarrage
 
-Dites comment faire pour lancer votre projet
+Une fois la machine master démarrée, connectez vous sur localhost:8080 sur la machine hôte. Connectez-vous avec les identifiants suivants:
+- username: tp
+- mot de passe: mambo
+
+
+
+// Configurez Jenkins
 
 ## Fabriqué avec
 
