@@ -4,5 +4,6 @@
   systemd:
     state: started
     daemon-reload: yes
-    name: docker 
+    name: docker
+    enabled: yes
   listen: start docker 
