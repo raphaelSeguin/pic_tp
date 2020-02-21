@@ -13,6 +13,7 @@
       path: ./prod_image/Dockerfile
       state: touch
       mode: '0644'
+  - name: ecrit Dockerfile
     blockinfile:
       path: ./prod_image/Dockerfile
       block: |
