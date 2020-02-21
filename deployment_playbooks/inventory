@@ -1,5 +1,5 @@
 slave-node ansible_host=192.168.1.57 ansible_port=2280
-prod-node  ansible_host=192.168.1.57 ansible_port=2202
+prod-node  ansible_host=192.168.1.57 ansible_port=2282
 [slave]
 slave-node
 [prod]
