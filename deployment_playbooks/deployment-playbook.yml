@@ -31,7 +31,8 @@
         path: ./prod_image
       name: devopsapp
       source: build
-  
+      pull: no
+ 
   - name: push to docker hub
     docker_image:
       name: raphaelseguin/devopsapp
