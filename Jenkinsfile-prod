@@ -24,6 +24,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     credentialsId: 'slave',
+		    become: true,
                     inventory: 'deployment_playbooks/inventory',
                     playbook:  'deployment_playbooks/deployment-playbook.yml',
                     disableHostKeyChecking: true
